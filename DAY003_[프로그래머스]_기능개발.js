@@ -1,20 +1,22 @@
 function solution(progresses, speeds) {
     var answer = []
     
-    for(let i=0;i<30;i++){
+    while(progresses.length > 0){
         let count = 0
+        let temp
         progresses=progresses.map((v, index) => v+speeds[index] > 100 ? 100 : v+speeds[index])
-        for(let e of progresses) {
-            //console.log(progresses)
+        temp = JSON.parse(JSON.stringify(progresses));
+        for(let e of temp) {
             if(e < 100) {
                 break
             } else {
                 count++
-                progresses.splice(0,1)
-                speeds.splice(0,1)
+                progresses.shift()
+                speeds.shift()
             }
         }
-        console.log(progresses)
+        if(count > 0) answer.push(count)
+        
     }
 
     return answer
