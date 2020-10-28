@@ -1,7 +1,6 @@
 const solution = (numbers) => {
     let answer = 0;
     
-    // 1 2 3  12 13 21 23 31 32 123 213 312
     numbers.split('').reduce((acc,cur) => {
         for(let i=0;i<numbers.length;i++) {
             
@@ -9,6 +8,7 @@ const solution = (numbers) => {
     },[])
     return answer;
 }
+
 
 
 const isPrime = (number) => {
