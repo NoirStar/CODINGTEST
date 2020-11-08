@@ -1,13 +1,16 @@
 const solution = (brown, yellow) => {
+    
     let answer = [];
     
-    for(let i=1; i<brown+1;i++) {
-        for(let j=1; j<yellow+1;j++) {
-            if(i*j == brown+yellow) answer.push([i,j]);
-        }
+    for(let i=3;i<=brown+yellow;i++) {
+        if((brown+yellow) % i === 0 && i >= (brown+yellow)/i && (brown+yellow)/i > 2) 
+            answer.push([i, (brown+yellow)/i]);
     }
     
-    console.log(answer)
+    // brown = (a-2)*2+(b-2)*2+4
+    answer = answer.filter(v => {
+        if(brown === (v[0]-2)*2 + (v[1]-2)*2 + 4) return v;
+    })
     
-    return answer;
+    return answer[0];
 };
