@@ -1,6 +1,7 @@
 const solution = (number, k) => getCombinations([...number], number.length - k).sort((a,b) => b-a)[0];
 
 
+/// ㅠㅠ
 
 const getCombinations = (arr, selectNumber) => {
     let results = [];
