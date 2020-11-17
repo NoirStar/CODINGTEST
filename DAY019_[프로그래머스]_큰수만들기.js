@@ -3,5 +3,4 @@ const solution = (number, k) => {
     return answer;
 }
 
-
 // 보고서 자동화 만드느라 바쁨
