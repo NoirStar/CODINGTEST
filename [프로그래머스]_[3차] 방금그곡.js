@@ -9,7 +9,7 @@ const solution = (m, musicInfos) => {
     });
     
     
-    console.log(musicInfos)
+    console.log(musicInfos);
     answer = musicInfos.filter(e => e.indexOf(m) != -1);
     
     return answer.length == 0 ? '(None)' : answer[0].split(',')[1];
