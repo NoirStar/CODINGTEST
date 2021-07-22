@@ -3,14 +3,15 @@ const solution = (m, musicInfos) => {
     
     musicInfos = musicInfos.map(e => {
         let eArr = e.split(',');
-        let timeDiff = (eArr[1].split(':')[0] - eArr[0].split(':')[0])*60 + 
-            (eArr[1].split(':')[1] - eArr[0].split(':')[1]);
-        return `${timeDiff},${eArr[2]},${eArr[3].repeat(Math.ceil(timeDiff / eArr[3].length))}`;
+        let timeDiff = (new Date(`1970-01-01 ${eArr[1]}:00`) - new Date(`1970-01-01 ${eArr[0]}:00`)) / 60000;
+        let melody = eArr[3].replace(/[A-Z]#/g,m => m[0].toLowerCase());
+        melody = melody.repeat(Math.ceil(timeDiff / melody.length)).substr(0, timeDiff);
+        return `${timeDiff},${eArr[2]},${melody}`;
     });
     
+    musicInfos.sort((a,b) => b.split(',')[0] - a.split(',')[0]);
     
-    console.log(musicInfos);
-    answer = musicInfos.filter(e => e.indexOf(m) != -1);
+    answer = musicInfos.filter(e => e.split(',')[2].indexOf(m.replace(/[A-Z]#/g,m => m[0].toLowerCase())) != -1);
     
     return answer.length == 0 ? '(None)' : answer[0].split(',')[1];
 }
