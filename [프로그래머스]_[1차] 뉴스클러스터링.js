@@ -13,7 +13,6 @@ const solution = (str1, str2) => {
             return acc;
         } 
         return acc;
-        
     },0)
     
 
