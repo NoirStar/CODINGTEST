@@ -1,24 +1,29 @@
 const solution = (str1, str2) => {
-    // 두 교집합의 크기를 두 합집합 크기로 나눈 값
     let answer = 0;
-    let intersection, union;
+    let intersection,union
     str1 = stringToArray(str1);
     str2 = stringToArray(str2);
-    
+    union = [...str1, ...str2];
+
     intersection = str1.reduce((acc,cur) => {
         const idx = str2.findIndex(e => e === cur);
         if(idx !== -1) {
             str2.splice(idx,1);
-            acc++;
+            acc.push(cur);
             return acc;
         } 
         return acc;
-    },0)
-    
+    },[])
 
-    console.log(intersection);
-    
-    return answer;
+   intersection.forEach(cur => {
+       const idx = union.findIndex(e => e === cur);
+       if(idx !== -1) {
+           union.splice(idx,1);
+       }
+   })
+
+    return intersection.length == 0 && union.length == 0 ? 
+        65536 : Math.floor(intersection.length / union.length * 65536);
 }
 
 
