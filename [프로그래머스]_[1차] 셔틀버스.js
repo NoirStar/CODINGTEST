@@ -14,6 +14,7 @@ function solution(n, t, m, timetable) {
     }
     
 
+
     console.log(busTimetable)
     
     return answer;
