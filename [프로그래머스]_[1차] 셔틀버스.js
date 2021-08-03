@@ -13,8 +13,6 @@ function solution(n, t, m, timetable) {
         busTimetable.push(time.toTimeString().substr(0,5))
     }
     
-
-
     console.log(busTimetable)
     
     return answer;
