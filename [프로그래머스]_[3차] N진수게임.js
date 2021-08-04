@@ -12,5 +12,6 @@ const solution = (n,t,m,p) => {
     for(let i=p; i<number.length; i=i+m) {
         answer += number[i-1];
     }
+    
     return answer.substr(0,t);
 }
