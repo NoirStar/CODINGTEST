@@ -18,7 +18,6 @@ function solution(progresses, speeds) {
         if(count > 0) answer.push(count)
         
     }
-
     
     return answer
 }
