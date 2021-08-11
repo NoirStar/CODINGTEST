@@ -13,6 +13,5 @@ const solution = (n,t,m,p) => {
         answer += number[i-1];
     }
     
-    
     return answer.substr(0,t);
 }
