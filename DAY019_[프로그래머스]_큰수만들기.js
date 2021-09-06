@@ -3,5 +3,4 @@ const solution = (number, k) => {
     return answer;
 }
 
-//  방학 
 
